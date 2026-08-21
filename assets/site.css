@@ -65,8 +65,10 @@ kbd { padding: 1px 7px; background: var(--paper-deep); border: 1px solid #d1c8b8
 .button.light { color: var(--white); border-color: rgba(255,255,255,.5); }
 .button:hover { transform: translateY(-1px); }
 .stats { display: grid; grid-template-columns: repeat(5,1fr); background: var(--green-dark); color: white; }
-.stats div { padding: 25px 20px; text-align: center; border-right: 1px solid rgba(255,255,255,.12); }
-.stats div:last-child { border-right: 0; }
+.stats > a { padding: 25px 20px; color: inherit; text-align: center; border-right: 1px solid rgba(255,255,255,.12); transition: background .16s ease; }
+.stats > a:last-child { border-right: 0; }
+.stats > a:hover { background: rgba(255,255,255,.07); }
+.stats > a:focus-visible { position: relative; z-index: 1; outline: 3px solid var(--gold); outline-offset: -3px; }
 .stats strong, .stats span { display: block; }
 .stats strong { font-family: var(--serif); font-size: 29px; }
 .stats span { margin-top: 2px; color: #adbfB6; font-size: 11px; }
@@ -139,7 +141,7 @@ kbd { padding: 1px 7px; background: var(--paper-deep); border: 1px solid #d1c8b8
 .lecture-prose p:last-child { margin-bottom: 0; }
 .source-passages { margin-top: 16px; }
 .source-quote { color: #33473f; }
-.inline-citation { display: inline; margin-left: .45em; color: #977043; font-family: var(--sans); font-size: 11px; font-weight: 700; white-space: nowrap; }
+.inline-citation { display: inline; margin-left: .45em; color: #977043; font-family: var(--sans); font-size: 11px; font-weight: 700; white-space: normal; overflow-wrap: anywhere; }
 .structured-list { margin: 0; padding: 0; list-style: none; counter-reset: ordered; }
 .structured-list > li { position: relative; min-height: 47px; padding: 11px 0 11px 48px; border-bottom: 1px dashed #d8d0c2; counter-increment: ordered; }
 .structured-list > li::before { content: counter(ordered, decimal-leading-zero); position: absolute; left: 0; top: 11px; color: var(--gold); font-family: var(--serif); font-size: 14px; }
@@ -195,6 +197,13 @@ kbd { padding: 1px 7px; background: var(--paper-deep); border: 1px solid #d1c8b8
 .expression-notes { display: grid; gap: 10px; }
 .expression-notes p { display: flex; gap: 14px; align-items: center; }
 .expression.synthesis { color: #5c4777; background: #eee8f4; }
+
+.version-history { display: grid; gap: 22px; }
+.version-history > article { padding: 24px; background: rgba(255,253,248,.72); border: 1px solid var(--line); }
+.version-history > article > div > small { color: var(--gold); font-size: 11px; font-weight: 800; letter-spacing: .06em; }
+.version-history > article > div > p { margin: 8px 0 20px; color: #45564e; }
+.version-history .figure-stack { margin-top: 18px; }
+.version-history .book-figure img { max-height: 620px; object-fit: contain; }
 
 /* 可持续商业工具：新增独立栏目，不改动知识库定稿正文的版式与内容。 */
 .tool-index-note, .tool-question { margin: 0 0 30px; padding: 24px 28px; color: #eff7f2; background: var(--green-dark); border-left: 4px solid #d3ad6a; }
@@ -301,8 +310,8 @@ kbd { padding: 1px 7px; background: var(--paper-deep); border: 1px solid #d1c8b8
   .home-hero h1 { font-size: clamp(42px,12vw,65px); }
   .home-hero::after { opacity: .45; }
   .stats { grid-template-columns: repeat(3,1fr); }
-  .stats div:nth-child(3) { border-right: 0; }
-  .stats div:nth-child(-n+3) { border-bottom: 1px solid rgba(255,255,255,.12); }
+  .stats > a:nth-child(3) { border-right: 0; }
+  .stats > a:nth-child(-n+3) { border-bottom: 1px solid rgba(255,255,255,.12); }
   .detail-layout { grid-template-columns: 1fr; }
   .detail-aside { padding: 30px 0 0; border-left: 0; border-top: 1px solid var(--line); }
   .sticky { position: static; }
@@ -312,9 +321,9 @@ kbd { padding: 1px 7px; background: var(--paper-deep); border: 1px solid #d1c8b8
 @media (max-width: 560px) {
   .hero-actions, .section-intro.split, .site-footer { align-items: stretch; flex-direction: column; }
   .stats { grid-template-columns: repeat(2,1fr); }
-  .stats div { border-bottom: 1px solid rgba(255,255,255,.12); }
-  .stats div:nth-child(odd) { border-right: 1px solid rgba(255,255,255,.12); }
-  .stats div:nth-child(even) { border-right: 0; }
+  .stats > a { border-bottom: 1px solid rgba(255,255,255,.12); }
+  .stats > a:nth-child(odd) { border-right: 1px solid rgba(255,255,255,.12); }
+  .stats > a:nth-child(even) { border-right: 0; }
   .feature-grid, .card-grid, .theme-grid, .source-map { grid-template-columns: 1fr; }
   .feature-grid a { border-right: 0; border-bottom: 1px solid var(--line); }
   .home-section { padding-top: 55px; }

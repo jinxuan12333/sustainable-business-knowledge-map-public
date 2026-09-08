@@ -237,6 +237,7 @@ sources/ai-six-capitals-traceability-2026/
 sources/sustainable-business-ai-capabilities-2026/
 sources/new-business-civilization-2026/
 sources/emp-shanghai-mobile-classroom-2026/
+sources/art-and-sustainable-business-2026/
 graph/
 source/
 changelog/
